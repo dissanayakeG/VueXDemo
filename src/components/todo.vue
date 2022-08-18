@@ -5,15 +5,19 @@
             <button @click="addTodo(title)">Add new todo</button>
         </div>
         <div class="col-lg-6 mt-5">
-            <table>
+            <table class="table">
                 <thead>
                     <tr>
-                        <th>Title</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Delete</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="(todo, index) in todoList" :key="index">
-                        <td>{{ todo }}</td>
+                        <td scope="col">{{ todo }}</td>
+                        <td scope="col">
+                            <button class="btn btn-small btn-danger" @click="deleteToto(todo)">X</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -23,7 +27,7 @@
         <br />
         <br />
         <br />
-        <p>{{ getAllTodos }}{{ alltodos }}</p>
+        <p>{{ getAllTodos }}{{ todoList }}</p>
     </div>
 </template>
 
@@ -49,12 +53,16 @@
         },
         methods: {
             ...mapActions({
-                addTodo: "addnewTodo",
+                // addTodo: "addnewTodo",
+                deleteToto: "deleteToto",
             }),
-            // addTodo(){
-            //     this.$store.dispatch('addnewTodo', this.title);
-            //     this.title= ''
-            // }
+
+            addTodo() {
+                this.$store.dispatch("addnewTodo", this.title).then(res => {
+                    console.log("res:", res);
+                    this.title = "";
+                });
+            },
         },
     };
 </script>
