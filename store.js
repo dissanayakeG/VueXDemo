@@ -6,25 +6,26 @@ vue.use(vueX)
 export default new vueX.Store({
     state: {
         title: '',
-        todos:[],
+        todos: [],
     },
 
-    getters:{
-        allTodos(state){
+    getters: {
+        allTodos(state) {
             return state.todos
         }
     },
 
-    actions:{
-        addnewTodo({commit}, todoItem){
-            commit('ADD_TODO',todoItem)
-            this.title= ''
+    actions: {
+        addnewTodo({ commit }, todoItem) {
+            console.log(1, commit, todoItem);
+            commit('ADD_TODO', todoItem)
+            this.title = ''
 
         }
     },
 
     mutations: {
-        ADD_TODO(state, todoItem){
+        ADD_TODO(state, todoItem) {
             state.todos.push(todoItem);
         }
     }

@@ -1,27 +1,35 @@
 <template>
-  <div id="app">
-    <Todo />
-  </div>
+    <div class="wrapper">
+        <div class="content">
+            <Todo />
+        </div>
+    </div>
 </template>
 
 <script>
-import Todo from './components/todo'
+    import Todo from "./components/todo";
 
-export default {
-  name: 'App',
-  components: {
-    Todo
-  }
-}
+    export default {
+        name: "App",
+        components: {
+            Todo,
+        },
+    };
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        height: auto;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: row;
+        min-height: 100vh;
+        width: 100%;
+        background-color: rgb(223, 217, 218);
+    }
 </style>
