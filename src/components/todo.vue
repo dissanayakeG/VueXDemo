@@ -1,8 +1,10 @@
 <template>
     <div class="content-wrapper">
-        <div class="col-lg-6 mt-5">
-            <input type="text" v-model="title" />
-            <button @click="addTodo(title)">Add new todo</button>
+        <div class="col-lg-6 mt-5 todo-input">
+            <div class="input-group">
+                <input type="text" class="form-control" v-model="title" />
+                <button class="btn btn-small btn-success" @click="addTodo(title)">Add new todo</button>
+            </div>
         </div>
         <div class="col-lg-6 mt-5">
             <table class="table">
