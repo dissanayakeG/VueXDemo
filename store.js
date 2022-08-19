@@ -35,8 +35,14 @@ export default new vueX.Store({
 
         DELETE_TODO(state, todoItem) {
             let index = state.todos.indexOf(todoItem)
-            // console.log(1,index, state.todos.indexOf(todoItem));
-            state.todos.splice(index);
+            if (index > -1) {
+                state.todos.splice(index, 1);
+            }
+
+            // return state.todos.filter((item) => {
+            //     console.log(item, todoItem);
+            //     return item != todoItem
+            // })
         }
     }
 })

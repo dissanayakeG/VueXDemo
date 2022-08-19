@@ -75,7 +75,7 @@
         border-radius: 15px;
         background-color: rgb(255, 255, 255);
         padding: 20px;
-        overflow: scroll;
+        overflow: hidden;
         min-height: 100%;
         width: 100%;
     }
