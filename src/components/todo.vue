@@ -19,10 +19,11 @@
                 </thead>
                 <tbody>
                     <tr v-for="(todo, index) in todoList" :key="index">
-                        {{ todo.completed }}
-                        <td scope="col" :class="todo.completed == true ? 'completed' : ''">{{ todo.todo }}</td>
+                        <td scope="col" :style="todo.completed == true ? 'text-decoration: line-through; color:red;' : ''">{{ todo.todo }}</td>
                         <td scope="col">
-                            <input type="checkbox" class="btn btn-small btn-danger" v-model="todo.completed" />
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" v-model="todo.completed" />
+                            </div>
                         </td>
                         <td scope="col">
                             <button class="btn btn-small btn-danger" @click="deleteToto(todo)">X</button>
@@ -85,12 +86,5 @@
         overflow: hidden;
         min-height: 100%;
         width: 100%;
-    }
-
-    ,
-    .completed {
-        margin: 20px;
-        text-decoration: line-through;
-        color: red;
     }
 </style>
