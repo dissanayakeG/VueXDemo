@@ -21,15 +21,15 @@
     .wrapper {
         display: flex;
         flex-direction: column;
-        position: relative;
         height: auto;
+        align-items: center;
     }
 
     .content {
         display: flex;
         flex-direction: row;
         min-height: 100vh;
-        width: 100%;
+        width: 60%;
         background-color: rgb(223, 217, 218);
     }
 </style>

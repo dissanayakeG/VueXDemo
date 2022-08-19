@@ -1,7 +1,9 @@
 <template>
     <div class="content-wrapper">
         <div class="col-lg-6 mt-5 todo-input">
-            <div class="input-group">
+            <h5>TODOS</h5>
+
+            <div class="input-group mt-5">
                 <input type="text" class="form-control" v-model="title" />
                 <button class="btn btn-small btn-success" @click="addTodo(title)">Add new todo</button>
             </div>
@@ -11,12 +13,17 @@
                 <thead>
                     <tr>
                         <th scope="col">Title</th>
+                        <th scope="col">Complete</th>
                         <th scope="col">Delete</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="(todo, index) in todoList" :key="index">
-                        <td scope="col">{{ todo }}</td>
+                        {{ todo.completed }}
+                        <td scope="col" :class="todo.completed == true ? 'completed' : ''">{{ todo.todo }}</td>
+                        <td scope="col">
+                            <input type="checkbox" class="btn btn-small btn-danger" v-model="todo.completed" />
+                        </td>
                         <td scope="col">
                             <button class="btn btn-small btn-danger" @click="deleteToto(todo)">X</button>
                         </td>
@@ -29,7 +36,7 @@
         <br />
         <br />
         <br />
-        <p>{{ getAllTodos }}{{ todoList }}</p>
+        <!-- <p>{{ getAllTodos }}{{ todoList }}</p> -->
     </div>
 </template>
 
@@ -78,5 +85,12 @@
         overflow: hidden;
         min-height: 100%;
         width: 100%;
+    }
+
+    ,
+    .completed {
+        margin: 20px;
+        text-decoration: line-through;
+        color: red;
     }
 </style>

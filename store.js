@@ -30,19 +30,15 @@ export default new vueX.Store({
 
     mutations: {
         ADD_TODO(state, todoItem) {
-            return state.todos.push(todoItem);
+            return state.todos.push({ todo: todoItem, completed: false });
         },
 
         DELETE_TODO(state, todoItem) {
             let index = state.todos.indexOf(todoItem)
+            console.log(index)
             if (index > -1) {
                 state.todos.splice(index, 1);
             }
-
-            // return state.todos.filter((item) => {
-            //     console.log(item, todoItem);
-            //     return item != todoItem
-            // })
         }
     }
 })
